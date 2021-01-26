@@ -6,7 +6,7 @@
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 19:25:16 by araramya          #+#    #+#             */
-/*   Updated: 2021/01/23 20:00:08 by araramya         ###   ########.fr       */
+/*   Updated: 2021/01/24 12:54:46 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *string_cpy;
-	int i;
+	char	*string_cpy;
+	int		i;
 
 	i = 0;
 	string_cpy = (char*)s;
-	while(string_cpy != '\0')
+	while (*string_cpy != '\0')
 	{
 		string_cpy++;
 		i++;
 	}
-	while(i != 0)
+	while (i != 0)
 	{
 		if (*string_cpy == c)
 			return (string_cpy);

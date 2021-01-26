@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/25 14:35:06 by araramya          #+#    #+#             */
-/*   Updated: 2021/01/25 17:53:48 by araramya         ###   ########.fr       */
+/*   Created: 2021/01/26 12:53:42 by araramya          #+#    #+#             */
+/*   Updated: 2021/01/26 13:14:07 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char	c_cpy;
-	char			*b_cpy;
-	size_t			i;
+	char	*b_cpy;
+	size_t	i;
 
-	c_cpy = (unsigned char)c;
-	b_cpy = b;
 	i = 0;
+	b_cpy = b;
 	while (i < len)
 	{
-		b_cpy[i] = c_cpy;
+		*(b_cpy + i) = c;
 		i++;
 	}
-	return (b_cpy);
+	return (b);
 }
