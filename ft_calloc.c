@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/26 17:16:46 by araramya          #+#    #+#             */
-/*   Updated: 2021/01/27 09:50:36 by araramya         ###   ########.fr       */
+/*   Created: 2021/01/27 10:04:52 by araramya          #+#    #+#             */
+/*   Updated: 2021/01/27 10:52:27 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*calloc(size_t count, size_t size)
 {
-	unsigned char	*s1_cpy;
-	unsigned char	*s2_cpy;
-	size_t			i;
+	void	*z_arr;
 
-	i = 0;
-	s1_cpy = (unsigned char *)s1;
-	s2_cpy = (unsigned char *)s2;
-	while (*s1_cpy && *s2_cpy && i < n)
-	{
-		if (*s2_cpy != *s1_cpy)
-			return (*s1_cpy - *s2_cpy);
-		i++;
-		s1_cpy++;
-		s2_cpy++;
-	}
-	if (i != n)
-		return (*s1_cpy - *s2_cpy);
-	return (0);
+	if (!(z_arr = (void*)malloc(count * size)))
+		return (NULL);
+	ft_memset(z_arr, 0, count * size);
+	return (z_arr);
 }

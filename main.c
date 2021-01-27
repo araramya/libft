@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-/*
+
 #include "ft_atoi.c"
 #include "ft_isalpha.c"
 #include "ft_isdigit.c"
@@ -10,6 +10,7 @@
 #include "ft_isprint.c"
 #include "ft_toupper.c"
 #include "ft_tolower.c"
+#include "ft_strnstr.c"
 #include "ft_strchr.c"
 #include "ft_strrchr.c"
 #include "ft_memset.c"
@@ -17,7 +18,11 @@
 #include "ft_memcpy.c"
 #include "ft_memccpy.c"
 #include "ft_memchr.c"
-*/
+#include "ft_memmove.c"
+#include "ft_substr.c"
+#include "ft_strjoin.c"
+#include "ft_strlen.c"
+#include "ft_itoa.c"
 
 int main()
 {
@@ -128,10 +133,10 @@ int main()
 	const char *smallstring = "Bar";
 	char *ptr;
  	
-	ptr = strnstr(largestring, smallstring, 7);
+	ptr = ft_strnstr(largestring, smallstring, 7);
 	printf("%p\n", ptr);
 	printf("%s\n", ptr);
-	printf("%s\n", strnstr("BikBarBaz", "Bar",10 ));
+	printf("%s\n", ft_strnstr("BikBarBaz", "Bar",10 ));
 	printf("ft_strnstr test <<\n");
 	// ft_strnstr test <<
 	
@@ -193,10 +198,32 @@ int main()
 	// ft_memccpy test <<
 	
 	//ft_memmove test >>
-	//here sould be ft_memove test
-	//ft_memmove test <<
+	char dest[] = "Aticleworld";
+    const char sorc[]  = "Amlendra";
+    //Source and destination before memmove
+    printf("Before memmove >> dest = %s, sorc = %s\n\n", dest, sorc);
+    ft_memmove(dest, sorc, 5);
+    //Source and destination after memmove
+    printf("After memmove >> dest = %s, sorc = %s\n\n", dest, sorc);
+    
 	
-	//ft_memchr test >>
-	printf("ft_memchr test >>");
-	printf("/n");
+	//ft_substr.c test >>;
+	
+	printf("ft_substr test >> \n");
+	printf("%s\n", ft_substr("araratyandashtavayr", 5, 7));
+	printf("ft_substr test << \n\n");
+
+	//ft_substr.c test <<;
+
+	//ft_strjoin.c test >>
+	printf("ft_strjoin test >>\n");
+	printf("%s\n", ft_strjoin("ya odinokiy ", "bradyaga lybvi kazanova"));
+	printf("ft_strjoin test << \n\n");
+	//ft_strjoin test <<
+	
+	//ft_itoa test>>
+	printf("ft_itoa test >>\n");
+	printf("%s\n",ft_itoa(2));
+
+	
 }

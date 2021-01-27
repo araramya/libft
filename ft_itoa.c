@@ -1,41 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 13:53:54 by araramya          #+#    #+#             */
-/*   Updated: 2021/01/27 15:58:44 by araramya         ###   ########.fr       */
+/*   Created: 2021/01/27 14:24:25 by araramya          #+#    #+#             */
+/*   Updated: 2021/01/27 19:22:13 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_itoa(int n)
 {
-	size_t	i;
-	size_t	j;
+	int		len;
+	int		n_cpy;
 	char	*str;
-	char	*to_find;
+	int		i;
 
-	str = (char*)haystack;
-	to_find = (char*)needle;
-	i = 0;
-	if (to_find[0] == '\0')
-		return (str);
-	while (str[i] && i < len)
+	if (n == -2147483648)
+		return ("-2147483648");
+	n_cpy = n;
+	len = 0;
+	while (n_cpy)
 	{
-		j = 0;
-		while (to_find[j] == str[i + j] && i + j < len)
-		{
-			if (to_find[j + 1] == '\0')
-			{
-				return (str + i);
-			}
-			j++;
-		}
-		i++;
+		len++;
+		n_cpy /= 10;
 	}
-	return (0);
+	n_cpy = n;
+	if (n_cpy < 0)
+	{
+		len++;
+		n_cpy *= -1;
+	}
+	if (!(str = (char*)malloc(sizeof(char) * len + 1)))
+		return (NULL);
+	i = 0;
+	if (n < 0)
+		str[i] = '-';
+	i = len - 1;
+	while (n_cpy != 0)
+	{
+		str[i] = n_cpy % 10 + 48;
+		i--;
+		n_cpy /= 10;
+	}
+	str[len] = '\0';
+	return (str);
 }
