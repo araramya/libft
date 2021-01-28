@@ -23,7 +23,7 @@
 #include "ft_strjoin.c"
 #include "ft_strlen.c"
 #include "ft_itoa.c"
-
+#include "ft_strtrim.c"
 int main()
 {
 	//ft_atoi checking >>
@@ -223,7 +223,21 @@ int main()
 	
 	//ft_itoa test>>
 	printf("ft_itoa test >>\n");
-	printf("%s\n",ft_itoa(2));
+	printf("%s\n",ft_itoa(-2147483648));
+	printf("ft_itoa test << \n\n");
+	//ft_itoa test <<
+	
+	//ft_strtrim test>>
+	printf("ft_strtrim test >>\n");
+	printf("%s\n",ft_strtrim("abcde", "ae"));
+	printf("%s\n",ft_strtrim("abcde", "ea"));
+	printf("%s\n",ft_strtrim("abcde", "cd"));
+	printf("%s\n",ft_strtrim("abcde", "dabe"));
+
+
+	printf("ft_strtrim << \n\n");
+	//ft_strtrim test <<
+	
 
 	
 }

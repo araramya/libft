@@ -6,46 +6,54 @@
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:24:25 by araramya          #+#    #+#             */
-/*   Updated: 2021/01/27 19:22:13 by araramya         ###   ########.fr       */
+/*   Updated: 2021/01/28 11:23:00 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static int		ft_len(int num)
 {
-	int		len;
-	int		n_cpy;
+	int len;
+
+	len = 0;
+	if (num < 0)
+	{
+		len++;
+		num *= -1;
+	}
+	while (num)
+	{
+		len++;
+		num /= 10;
+	}
+	return (len);
+}
+
+char			*ft_itoa(int n)
+{
+	int		length;
 	char	*str;
 	int		i;
 
 	if (n == -2147483648)
 		return ("-2147483648");
-	n_cpy = n;
-	len = 0;
-	while (n_cpy)
-	{
-		len++;
-		n_cpy /= 10;
-	}
-	n_cpy = n;
-	if (n_cpy < 0)
-	{
-		len++;
-		n_cpy *= -1;
-	}
-	if (!(str = (char*)malloc(sizeof(char) * len + 1)))
+	length = ft_len(n);
+	if (!(str = (char*)malloc(sizeof(char) * length + 1)))
 		return (NULL);
 	i = 0;
 	if (n < 0)
-		str[i] = '-';
-	i = len - 1;
-	while (n_cpy != 0)
 	{
-		str[i] = n_cpy % 10 + 48;
-		i--;
-		n_cpy /= 10;
+		str[i] = '-';
+		n *= -1;
 	}
-	str[len] = '\0';
+	i = length - 1;
+	while (n != 0)
+	{
+		str[i] = n % 10 + 48;
+		i--;
+		n /= 10;
+	}
+	str[length] = '\0';
 	return (str);
 }
