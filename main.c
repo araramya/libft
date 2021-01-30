@@ -117,11 +117,11 @@ int main()
 	 //ft_strrchr test >>
    	char *s1 = "klmnoArsAen";
 	printf("ft_strrchr test >>\n");
-	printf("%p\n", ft_strrchr(s1, 'A'));
+	printf("%s\n", ft_strrchr(s1, 'k'));
 	printf("%s\n", ft_strrchr(s1, '.'));
 	printf("%s\n", ft_strrchr(s1, 'A'));
 	printf("system strrchr test \n");
-	printf("%p\n", strrchr(s1, 'A'));
+	printf("%s\n", strrchr(s1, 'k'));
 	printf("%s\n", strrchr(s1, '.'));
 	printf("%s\n", strrchr(s1, 'A'));
 	printf("ft_strrchr test <<\n\n");
@@ -237,7 +237,18 @@ int main()
 
 	printf("ft_strtrim << \n\n");
 	//ft_strtrim test <<
-	
 
+	//just debil test >>
+	printf("just debil testing No1\n");
+	int count1 = 0;
+	int count2 = 0;
+	char str[] = "0123456789";
+	while(str[count1])
+		count1++;
+	while(str[count2])
+		++count2;
+	printf("%d\n", count1);
+	printf("%d\n", count2);
+	// just debil test <<
 	
 }

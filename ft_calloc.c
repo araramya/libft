@@ -6,13 +6,13 @@
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:04:52 by araramya          #+#    #+#             */
-/*   Updated: 2021/01/27 10:52:27 by araramya         ###   ########.fr       */
+/*   Updated: 2021/01/30 14:49:46 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	void	*z_arr;
 

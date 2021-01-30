@@ -6,13 +6,13 @@
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 12:51:44 by araramya          #+#    #+#             */
-/*   Updated: 2021/01/25 16:16:20 by araramya         ###   ########.fr       */
+/*   Updated: 2021/01/30 13:59:11 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t i;
 

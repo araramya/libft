@@ -6,7 +6,7 @@
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 12:23:19 by araramya          #+#    #+#             */
-/*   Updated: 2021/01/27 12:53:04 by araramya         ###   ########.fr       */
+/*   Updated: 2021/01/29 10:11:59 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while(s1[j])
+	while (s1[j])
 	{
 		join_str[i] = s1[j];
 		i++;
 		j++;
 	}
 	j = 0;
-	while(s2[j])
+	while (s2[j])
 	{
 		join_str[i] = s2[j];
 		i++;
 		j++;
 	}
 	join_str[i] = 0;
-	return(join_str);
+	return (join_str);
 }
