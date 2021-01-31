@@ -6,7 +6,7 @@
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 11:42:27 by araramya          #+#    #+#             */
-/*   Updated: 2021/01/30 21:20:19 by araramya         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:30:19 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static int		ft_is_char_in_str(char c, const char *str)
 
 char			*ft_strtrim(char const *s1, char const *set)
 {
+	int 	len;
 	int		start;
 	int		end;
 	int		i;
@@ -42,10 +43,19 @@ char			*ft_strtrim(char const *s1, char const *set)
 		start++;
 	while (s1[end] && ft_is_char_in_str(s1[end], set))
 		end--;
-	if (!(str_cpy = (char*)malloc(sizeof(char) * (end - start + 1) + 1)))
-		return (NULL);
-	i = 0;
-	while (start <= end)
+	len = start - end + 1;
+	if (len < 0)
+	{
+		if(!(str_cpy = (char*)malloc(1)))
+			return (NULL);
+	}
+	else
+	{
+		if (!(str_cpy = (char*)malloc(sizeof(char) * (len) + 1)))
+			return (NULL);
+	}
+		i = 0;
+		while (start <= end)
 	{
 		str_cpy[i] = s1[start];
 		i++;

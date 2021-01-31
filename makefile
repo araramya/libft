@@ -13,7 +13,7 @@
 SRCS		= $(shell find *.c)
 #BONUSES 	= #$(shell find "bonuses" -name "*.c")
 OBJS		= ${SRCS:.c=.o}
-#BONUS_OBJS 	=  #${BONUSES:.c=.o}
+#BONUS_OBJS =  #${BONUSES:.c=.o}
 NAME		= libft.a
 CC			= gcc
 RM			= rm -f

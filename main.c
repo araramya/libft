@@ -229,7 +229,7 @@ int main()
 	
 	//ft_strtrim test>>
 	printf("ft_strtrim test >>\n");
-	printf("%s\n",ft_strtrim("abcde", "ae"));
+	printf("%s\n",ft_strtrim("      ", "\n \t"));
 	printf("%s\n",ft_strtrim("abcde", "ea"));
 	printf("%s\n",ft_strtrim("abcde", "cd"));
 	printf("%s\n",ft_strtrim("abcde", "dabe"));
