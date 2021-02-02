@@ -6,7 +6,7 @@
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:24:25 by araramya          #+#    #+#             */
-/*   Updated: 2021/01/30 21:14:57 by araramya         ###   ########.fr       */
+/*   Updated: 2021/02/01 12:18:51 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ char			*ft_itoa(int n)
 	int		i;
 	long	num;
 
-
 	num = n;
 	length = ft_len(num);
 	if (!(str = (char*)malloc(sizeof(char) * length + 1)))
@@ -53,10 +52,9 @@ char			*ft_itoa(int n)
 	i = length - 1;
 	if (num == 0)
 		str[i] = '0';
-	while (num >  0)
+	while (num > 0)
 	{
-		str[i] = num % 10 + 48;
-		i--;
+		str[i--] = num % 10 + 48;
 		num /= 10;
 	}
 	str[length] = '\0';

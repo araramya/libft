@@ -6,9 +6,10 @@
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:31:18 by araramya          #+#    #+#             */
-/*   Updated: 2021/01/31 14:41:24 by araramya         ###   ########.fr       */
+/*   Updated: 2021/02/01 12:19:46 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)

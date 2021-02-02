@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/22 17:09:59 by araramya          #+#    #+#             */
-/*   Updated: 2021/02/01 13:45:26 by araramya         ###   ########.fr       */
+/*   Created: 2021/02/01 18:14:01 by araramya          #+#    #+#             */
+/*   Updated: 2021/02/02 17:59:22 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+t_list		*ft_lstnew(void *content)
 {
-	size_t			i;
-	unsigned char	*s1_cpy;
-	unsigned char	*s2_cpy;
+	t_list		*node;
 
-	s1_cpy = (unsigned char *)s1;
-	s2_cpy = (unsigned char *)s2;
-	i = 0;
-	while (s1_cpy[i] && s2_cpy[i] && i < n)
-	{
-		if (s2_cpy[i] != s1_cpy[i])
-			return (s1_cpy[i] - s2_cpy[i]);
-		i++;
-	}
-	if (i != n)
-		return (s1_cpy[i] - s2_cpy[i]);
-	return (0);
+	if (!(node = (t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

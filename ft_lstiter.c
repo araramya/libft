@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/22 17:09:59 by araramya          #+#    #+#             */
-/*   Updated: 2021/02/01 13:45:26 by araramya         ###   ########.fr       */
+/*   Created: 2021/02/02 17:59:45 by araramya          #+#    #+#             */
+/*   Updated: 2021/02/02 18:52:46 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t			i;
-	unsigned char	*s1_cpy;
-	unsigned char	*s2_cpy;
-
-	s1_cpy = (unsigned char *)s1;
-	s2_cpy = (unsigned char *)s2;
-	i = 0;
-	while (s1_cpy[i] && s2_cpy[i] && i < n)
+	if (!f || !lst)
+		return ;
+	while (lst)
 	{
-		if (s2_cpy[i] != s1_cpy[i])
-			return (s1_cpy[i] - s2_cpy[i]);
-		i++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	if (i != n)
-		return (s1_cpy[i] - s2_cpy[i]);
-	return (0);
 }

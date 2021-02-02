@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/22 17:09:59 by araramya          #+#    #+#             */
-/*   Updated: 2021/02/01 13:45:26 by araramya         ###   ########.fr       */
+/*   Created: 2021/02/02 14:21:22 by araramya          #+#    #+#             */
+/*   Updated: 2021/02/02 17:07:31 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t			i;
-	unsigned char	*s1_cpy;
-	unsigned char	*s2_cpy;
+	t_list *last_elem;
 
-	s1_cpy = (unsigned char *)s1;
-	s2_cpy = (unsigned char *)s2;
-	i = 0;
-	while (s1_cpy[i] && s2_cpy[i] && i < n)
+	if (lst)
 	{
-		if (s2_cpy[i] != s1_cpy[i])
-			return (s1_cpy[i] - s2_cpy[i]);
-		i++;
+		if (*lst == NULL)
+			*lst = new;
+		else
+		{
+			last_elem = ft_lstlast(*lst);
+			last_elem->next = new;
+		}
 	}
-	if (i != n)
-		return (s1_cpy[i] - s2_cpy[i]);
-	return (0);
 }
