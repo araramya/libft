@@ -1,19 +1,7 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: araramya <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/01/30 13:36:16 by araramya          #+#    #+#              #
-#    Updated: 2021/02/01 16:12:09 by araramya         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-SRCS		= $(shell find *.c)
-#BONUSES 	= #$(shell find "bonuses" -name "*.c")
+SRCS		= $(shell find "." -name "*c" ! -name "ft_lst*.c")
+BONUSES 	= $(shell find "." -name "*ft_lst*.c")
 OBJS		= ${SRCS:.c=.o}
-#BONUS_OBJS =  #${BONUSES:.c=.o}
+BONUS_OBJS  = ${BONUSES:.c=.o}
 NAME		= libft.a
 CC			= gcc
 RM			= rm -f
@@ -24,16 +12,16 @@ AR			= ar csr
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME) : ${OBJS}
-	${AR} ${NAME} ${OBJS}
+	${AR} libft.a ${OBJS}
 
-# bonus : ${BONUS_OBJS}
-#	${AR} libft.a ${BONUS_OBJS}
+bonus : ${BONUS_OBJS}
+	${AR} libft.a ${BONUS_OBJS}
 
 
 all : ${NAME}
 
 clean :
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean : clean
 	${RM} ${NAME}
@@ -41,4 +29,3 @@ fclean : clean
 re : fclean all
 
 .PHONY: all clean fclean re .c.o
-

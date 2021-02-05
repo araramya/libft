@@ -6,61 +6,44 @@
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 11:42:27 by araramya          #+#    #+#             */
-/*   Updated: 2021/02/01 15:44:49 by araramya         ###   ########.fr       */
+/*   Updated: 2021/02/05 17:57:30 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_is_char_in_str(char c, const char *str)
+static	int	ft_is_in_str(const char *str, char c)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == c)
+		if (*str == c)
 			return (1);
-		i++;
+		str++;
 	}
 	return (0);
 }
 
-static int		just_for_norminette1(char const *s1)
+char		*ft_strtrim(char const *s1, char const *set)
 {
-	int end_f;
-	int i;
-
-	i = 0;
-	end_f = -1;
-	while (s1[i++])
-		end_f++;
-	return (end_f);
-}
-
-char			*ft_strtrim(char const *s1, char const *set)
-{
-	int		start;
-	int		end;
-	int		i;
-	char	*str_cpy;
+	size_t	start;
+	size_t	end;
+	char	*new;
+	size_t	i;
 
 	start = 0;
-	end = just_for_norminette1(s1);
-	while (s1[start] && ft_is_char_in_str(s1[start], set))
-		start++;
-	while (s1[end] && ft_is_char_in_str(s1[end], set))
-		end--;
-	if ((start - end + 1) < 0)
-	{
-		if (!(str_cpy = (char*)malloc(1)))
-			return (NULL);
-	}
-	else if (!(str_cpy = (char*)malloc(sizeof(char) * (start - end + 1) + 1)))
-		return (NULL);
 	i = 0;
-	while (start <= end)
-		str_cpy[i++] = s1[start++];
-	str_cpy[i] = '\0';
-	return (str_cpy);
+	end = ft_strlen(s1);
+	while (s1[start] && ft_is_in_str(set, s1[start]))
+		start++;
+	while (end > start && ft_is_in_str(set, s1[end - 1]))
+		end--;
+	if (!(new = malloc(sizeof(char) * (end - start + 1))))
+		return (NULL);
+	while (start < end)
+	{
+		new[i++] = s1[start];
+		++start;
+	}
+	new[i] = 0;
+	return (new);
 }

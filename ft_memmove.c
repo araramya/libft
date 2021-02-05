@@ -6,7 +6,7 @@
 /*   By: araramya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:31:18 by araramya          #+#    #+#             */
-/*   Updated: 2021/02/01 12:19:46 by araramya         ###   ########.fr       */
+/*   Updated: 2021/02/04 12:46:36 by araramya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char			*src_cpy;
 	size_t			i;
 
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	dst_cpy = (char*)dst;
 	src_cpy = (char*)src;
 	i = 0;
